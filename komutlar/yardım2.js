@@ -11,7 +11,7 @@ exports.run = async (client, message, args) => {
   const embed = new Discord.MessageEmbed()
 
 .setColor('RANDOM')
-  .setTitle('Murat-Eren Yardım Menüsü')
+  .setTitle('data#9999 Yardım Menüsü')
 
   .setDescription(`
 
