@@ -4,12 +4,6 @@ const db = require('quick.db');
 
 exports.run = (client, message, args) => {
 
-if(db.fetch(`bakimmod`)) {
-
-  if(message.author.id !== "683752128644251660") return message.channel.send('')
-
-}
-
 
 if (!message.member.permissions.has("ADMINISTRATOR")) return message.channel.send(`Bu komutu kullanabilmek için "\`Yönetici\`" yetkisine sahip olmalısın.`);
 if (!message.guild) {

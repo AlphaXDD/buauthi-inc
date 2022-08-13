@@ -1,37 +1,44 @@
-const Discord = require("discord.js");
-module.exports.run = async (bot, message, args) => {
-let bug = args.join(" ").slice(0);
-let user = message.author.username;
-let guild = message.guild.name;
-let guildid = message.guild.id;
-let kanal = message.channel.name;
-let channel = bot.channels.cache.get("780654895250276353")//bug repot kanal id'i
-let embed = new Discord.MessageEmbed()
-.setTitle("Bug Report")
-.setThumbnail("https://cdn.discordapp.com/attachments/545569894268272650/645252657572872192/tosun.png?width=80&height=80")
-.addField("Bug", bug)
-.addField("Report Eden", user, true)
-.addField("Sunucu", guild, true)
-.addField("Sunucu ID", guildid, true)
-.addField("Kanal", kanal, true)
-.setColor("#f49542")
+const Discord = require('discord.js')
 
-message.channel.send(":white_check_mark:  **| Bug Report Başarı İle İletildi.**")
-channel.send(embed).then(i => i.react("⏳"))
+    exports.run = async(client, message, args) => {
+        let sikayetmesaj = args.slice(0).join(' ')
+        
+        if(!sikayetmesaj){
+            const cmfhata = new Discord.MessageEmbed()
+            .setDescription(`**Şikayetini Girmen Gerekiyor**`)
+            .setColor('#ff0000')
+            return message.channel.send(cmfhata)
+        }
 
-  
+        // Zaman
+        var zaman = new Date(); 
+        var codemarefizaman = zaman.getDate() + "/"+ (zaman.getMonth()+1)  + "/" + zaman.getFullYear() + " - " + zaman.getHours() + ":" + zaman.getMinutes() + ":" + zaman.getSeconds();
+
+        // Sunucunun İnvitesi İçin
+        if(sikayetmesaj){
+            message.channel.createInvite().then(inv => {
+                const codemarefisikayet = new Discord.MessageEmbed()
+                .setDescription(`
+                    **${message.guild.name}** Adlı Sunucudan ${message.author} Kişisi Bot Hakkında Şikayette Bulundu, Edilen Şikayet - **${sikayetmesaj}**\n
+                    Sunucunun Davet Linki: ${inv.url}
+                `)
+                .setColor('RANDOM')
+                .setTitle(`**Şikayet Var**`)
+                .setFooter(codemarefizaman)
+                client.channels.cache.get('1006709304151253085').send(codemarefisikayet)
+            })
+
+        }
+    }
 
 
-}
 exports.conf = {
-  enabled: true,
-  guildOnly: false,
-  aliases: [],
-  permLevel: 0  
-};
+    enabled: true,
+    guildOnly: false,
+    aliases: ['Şikayet','Report','ŞİKAYET','REPORT','report'],
+    permLevel: 0
+}
 
 exports.help = {
-  name: 'bug-bildir',
-  description: 'Bug Bildirme Komudu.',
-  usage: 'bug-bildir'
-}
+    name: 'şikayet'
+};
