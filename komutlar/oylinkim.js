@@ -1,17 +1,24 @@
-const Discord = require ("discord.js");
-exports.run = (client, message) => {
-    let deathhcodeteam = new Discord.MessageEmbed()
-    .setDescription('Oy Linkim İçin [Buraya Tıkla](Oy linkini koyun buraya)')
-    message.channel.send(deathhcodeteam)
-    };
+const  Discord = require("discord.js"); 
+
+exports.run = (client, message, args) => {
+
+  const davet = new Discord.MessageEmbed()
+  .setColor(0x36393F)
+  .setTitle("**Bana Oy Ver!**")
+  .setDescription("[**Oy Ver**](https://top.gg/bot/188461479253639169/vote)")
+  message.channel.send(davet)
+}
+
+
 exports.conf = {
-enabled: true, 
-    guildOnly: false, 
-    aliases: ['oy-linkim'], 
-    permLevel: 0 
+  enabled: true,
+  guildOnly: false,
+  aliases: ["oy-ver","oy","oyver"],
+  permLevel: 0
 };
-  exports.help = {
-    name: 'oy', 
-    description: 'Deathh code team', 
-    usage: 'oy'
+
+exports.help = {
+  name: 'oy-ver',
+  description: '',
+  usage: ''
 };

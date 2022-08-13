@@ -5,16 +5,16 @@ if (message.channel.type !== "text") return;
 const limit = args[0] ? args[0] : 0;
   if(!limit) {
               var embed = new Discord.MessageEmbed()
-                .setDescription(`Doğru kullanım: \` !slowmode [0/120]\``)
-                .setColor("RANDOM")
+                .setDescription(`Doğru kullanım: \` e!yavaşmod [0/120]\``)
+                .setColor(0x36393F)
                 .setTimestamp()
             message.channel.send({embed})
             return
           }
 if (limit > 120) {
-    return message.channel.send(new Discord.MessageEmbed().setDescription("Süre limiti maksimum **120** saniye olabilir.").setColor("#36393F"));
+    return message.channel.send(new Discord.MessageEmbed().setDescription("Süre limiti maksimum **120** saniye olabilir.").setColor(0x36393F));
 }
-    message.channel.send(new Discord.MessageEmbed().setDescription(`Yazma süre limiti **${limit}** saniye olarak ayarlanmıştır.`).setColor("#36393F"));
+    message.channel.send(new Discord.MessageEmbed().setDescription(`Yazma süre limiti **${limit}** saniye olarak ayarlanmıştır.`).setColor(0x36393F));
 var request = require('request');
 request({
     url: `https://discordapp.com/api/v7/channels/${message.channel.id}`,

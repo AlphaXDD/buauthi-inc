@@ -1,25 +1,22 @@
-const dc = require("discord.js")
-exports.run = async(client, message, args) => {
-  if(!message.member.hasPermission("ADMİNİSTRATOR")) return;
-  let channelp = message.channel.parentID
- message.channel.delete(message.channel).then
-  message.channel.clone().then(z => {
-    let kanal = z.guild.channels.cache.find(c => c.name === z.name)
-    kanal.setParent(
-    kanal.guild.channels.cache.find(channel => channel.id === channelp))
-    const embed = new dc.MessageEmbed()
-    .setTitle("Bu Kanal Nukelendi!")
-    .setColor("ORANGE")
-    .setImage("https://tenor.com/view/destory-eexplode-nuke-gif-6073338")
-    z.send(embed)
-    })
-  };
+const Discord = require('discord.js');
+
+exports.run = (client, message, args) => {
+message.channel.clone().then(knl => {
+  let position = message.channel.position;
+  knl.setPosition(position);
+  message.channel.delete();
+});
+  
+}
 exports.conf = {
   enabled: true,
-  guildonly: false,
-  aliases: ["nuke"],
-  permLevel: 0
-}
+  guildOnly: true,
+  aliases: ["nuke","nuk","nk"],
+  permLevel: 3
+};
+
 exports.help = {
-  name: "nuke"
-  }
+    name: 'nuke',
+  description: 'yeni kanal olusturur',
+  usage: 'nuke'
+};
