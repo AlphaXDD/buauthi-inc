@@ -7,9 +7,9 @@ var prefix = ayarlar.prefix;
 
 module.exports = client => {
 var oyun = [
- 'abone olun',
- 'like atın',
- 'yorum yapın'
+ 'v13 ',
+ 'Yakında yep yeni bir v13',
+ ''
     ];
 
     setInterval(function() {

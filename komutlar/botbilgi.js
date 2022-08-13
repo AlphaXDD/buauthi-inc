@@ -18,8 +18,8 @@ exports.run = async (client, message, args) => {
     .addField("**__Ram Kullanımı__**", `${(process.memoryUsage().heapUsed / 1024 / 512).toFixed(2) + " MB"}`, true)
     .addField("**__Discord.JS__**", `${Discord.version}`, true)
     .addField("**__Konum__**", `Turkey :flag_tr:`, true)
-    .addField("**__Bot Sahibi__**", `data#9999`, true)
-    .addField("**__Geliştirici__**", ` data#9999`, true)
+    .addField("**__Bot Sahibi__**", `Alpha?##1000`, true)
+    .addField("**__Geliştirici__**", ` kerem#1000`, true)
     .addField("**__İşletim Sistemi__**", ` \`Windows 10 | 64 Bit\` `, true)
     .addField("**__CPU__**",` \`\`\`Intel Xeon W-3275M\`\`\` `)
 
@@ -29,7 +29,7 @@ exports.run = async (client, message, args) => {
 exports.conf = {
   enabled: true,
   guildOnly: false,
-  aliases: ['is'],
+  aliases: ["is","i"],
   permLevel: 0
 };
 
